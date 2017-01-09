@@ -1,0 +1,6 @@
+昨晚练习时window.onunload.本想用它来在用户关闭页面时进行最后一次对服务器的请求，这样可以监听用户下线，从而注销session.
+	window.onunload= unloadPage;
+		function unloadPage()
+		{
+			location.href="http://127.0.0.1:8080/Ajax/SimpleServlet";
+		}
