@@ -12,10 +12,11 @@
  //第二个练习
  //同学问的问题
  //本来应该是undefined的，但之所以是空串是因为在window下有name属性
+//折腾啦老半天，因为在它丫的还能输出qwe，估计就是执行环境的影响
  (function(){
-
     var name="qwe";
     window.Person = function(value) {
+	    //不推荐这样写.
         name = value;
     }
     window.Person.prototype.getName = function() {
