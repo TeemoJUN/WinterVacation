@@ -1,0 +1,19 @@
+    1.URL中的#号
+    昨天看了《HTTP权威指南》前三章，发现2.2.7节片段继“#”号可以完美配合Ajax进行，翻页查看.也就是可以做到当点击页面时，
+用#号来改变地址栏里。同时可以用事件委托来监听事件变化，获取事件源，然后用Ajax来获取请求对象，地址栏可以制造一个假象，
+误以为新了界面，于是浏览器的前进和后退的按钮依旧有效，Ajax正好又可以异步请求数据。
+/*................................................................................................................*/
+    2.Filter过滤器
+    2.1   init(FilterConfig config)
+          初始化filter，获取web.xml中的初始化配置
+    2.2   doFilter(ServletRequest req,ServletResponse resp,FilterChain chain)
+          注意其中req为ServletRequest，resp为ServletResponse;
+          chain.doFilter(req,resp)将激发下一个过滤器
+          其中先激发下一个后来在执行chan.doFilter()后面的代码
+    2.3   destroy()
+    3   <filter-mapping>中相同时过滤器的激发顺序为在web.xml中的配置顺序。
+    
+    
+    
+    
+    
