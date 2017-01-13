@@ -9,8 +9,18 @@
 发现追踪bug才是开发中的重要内容。然后对应的查看http权威指南中的返回200-505之间的错误。学到了很多
 2 当然有一个缺陷就我将两张bean建立到一起去啦，当然问题是没有，但这不符合规范。这是极不好的，代码是写给人看的，所以命名必须规范.........下次注意啦！！！
 
-
-
+//单例加同步
+public class UserManager {
+	  static private UserManager instance=null;
+    private UserManager(){}
+    static public UserManager getInstance()
+    {
+	    if(instance==null){
+		      instance=new UserManager(); 
+		  }
+      return instance;
+     }
+}
 
 
 
