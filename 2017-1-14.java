@@ -54,10 +54,27 @@ public abstract class HttpServlet extends GenericServlet implements java.io.Seri
 * Jsp在第一次被访问时被翻译成Servlet源文件,被编译成Servlet类然后被，放置在<CATALINA_HOME>/work中。
 * Jsp本质就是Servlet。
 */
+/*
+	1. 启动阶段：加载Web应用的相关数据，创建ServletContext对象，对Filter和Servlet进行初始化
+	2. 运行阶段：为客户端提供服务；
+	3. 终止阶段：释放Web应用所占用的各种资源
 
+在启动阶段：
 
+	* 把web.xml文件中数据加载到内存中。
+	* 为javaweb应用创建第一个ServlerContext对象。
+	* 把所有的Filter进行初始化。
+	* 对那些因在启动时初始化的Servlet进行初始化。
 
+在运行阶段：
 
+* 他的所有Servlet都处于待命状态，随时可以响应客户端的特定请求，提供相应的服务。假如客户端的相应的Servlet不存在，Servlet会初始化Servlet。然后调用他的service()方法；
 
+在终止阶段：
 
+	* 销毁Servlet
+	* 销毁Filter
+	* 销毁ServlteContext等javaweb相关对象
+
+*/
 
