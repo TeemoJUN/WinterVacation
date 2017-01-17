@@ -23,9 +23,7 @@ public class UploadServlet extends HttpServlet {
 	private String tempFilePath;
 	 private ServletContext sc;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("..............");
-		System.out.println("............................"+getServletContext());
-		//request.setCharacterEncoding("utf-8");
+		
 		response.setContentType("text/plain");
 		response.setCharacterEncoding("utf-8");
 		
@@ -40,7 +38,7 @@ public class UploadServlet extends HttpServlet {
 			factory.setRepository(new File(tempFilePath));
 			
 			ServletFileUpload upload=new ServletFileUpload(factory);
-			upload.setHeaderEncoding("utf-8");
+			upload.setHeaderEncoding("utf-8");//防止中文乱码		
 			upload.setSizeMax(4*1024*1024);
 			
 			List items=upload.parseRequest(request);
@@ -76,27 +74,26 @@ public class UploadServlet extends HttpServlet {
 		tempFilePath=config.getInitParameter("tempFilePath");
 		
 		filePath=getServletContext().getRealPath(filePath);
-		System.out.println(filePath);
+		
 		
 		tempFilePath=getServletContext().getRealPath(tempFilePath);
-		System.out.println(tempFilePath);
+		
 	}
 	
 	private void processFormField(FileItem item,PrintWriter outNet){
 		String name=item.getFieldName();
 		String value=item.getString();
-		outNet.println(name+" �� "+value+"\r\n");
+		outNet.println(name+" £º "+value+"\r\n");
 	}
 	
 	private void processUploadedFile(FileItem item,PrintWriter outNet) throws Exception{
 		String filename=item.getName();
-		System.out.println(item);
-		System.out.println(filename);
+		
 		int index=filename.lastIndexOf("\\");
 		filename=filename.substring(index+1, filename.length());
-		System.out.println(filename);
+		
 		long fileSize=item.getSize();
-		System.out.println("AAAAAAAAA");
+		
 		if(filename.equals("")&&fileSize==0){
 			return;
 		}
