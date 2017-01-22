@@ -1,0 +1,31 @@
+function asyncify(fn){
+  
+  var orig_fn=fn,intv=setTimeout(function(){
+    intv=null;
+    if(fn){
+      fn();
+    }
+  },0);
+  fn=null;
+
+  return function(){
+    //触发太快，在定时器intv之前指示异步转换发生之前？
+    if(intv){
+      //把封装的this添加到bind调用参数中
+      //以及克里化（curring）所传入参数
+      fn=orig_fn.bind.apply(orig_fn,[this].concat([].slice(arguments))]);
+    }
+    //已经是异步
+    else{
+      //调用原来的函数
+      orig_fn.apply(this,arguments);
+    }
+  }
+}
+
+function result(){
+  console.log(a);
+}
+var a=0;
+ajax("",asyncify(result));
+a++;
