@@ -1,5 +1,5 @@
 package interruptible;
-//javaºËĞÄ¾í2µÚÈıÕÂ
+//javaæ ¸å¿ƒå·2ç¬¬ä¸‰ç« 
 
 import java.awt.*;
 import java.awt.event.*;
