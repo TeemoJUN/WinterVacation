@@ -111,6 +111,4 @@ btn.onclick=function(){
 **returnValue属性相当于preventDefault();window.event.returnValue==false;来取消默认行为**
 **cancelBubble属性相当于stopPropgation();取消冒泡**
 
-
-
-
+## 这都是一些常见的
