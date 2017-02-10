@@ -133,7 +133,7 @@ crateEvent();
 
 ```javascript
 //创建事件
-var event = document.createEvent();
+var event = document.createEvent("MouseEvents");
  //初始化事件
  event.initMouseEvent(上面的参数);
  //触发事件
